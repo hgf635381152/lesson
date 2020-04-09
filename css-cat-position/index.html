@@ -22,6 +22,15 @@
             /* 微调：相对于猫的身体 长50%，宽50% */
             transform: translate3d(-50%,-50%,0);
         }
+        .yaobaibody{
+            width: 117px;
+            height: 201px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%,-50%,0);
+            z-index: -1;
+        }
         .weiba{
             position: absolute;
             background: url("./cat/maowei.png");
@@ -43,8 +52,8 @@
             background: url("./cat/maozhua.png");
             width: 34px;
             height: 81px;
-            left: 65px;
-            top: 192px;
+            left: 68px;
+            top: 183px;
             animation: zhua 2s ease-in-out infinite alternate;
             transform-origin: 0% 0%;
         }
@@ -92,11 +101,13 @@
     <div class="cat">
         <!-- 猫的组成 -->
         <div class="body">
-            <div class="weiba"></div>
-            <div class="maozhua"></div>
             <div class="maoyan1"></div>
             <div class="maoyan2"></div>
             <div class="maozui"></div>
+        </div>
+        <div class="yaobaibody">
+            <div class="weiba"></div>
+            <div class="maozhua"></div>
         </div>
     </div>
 </body>
