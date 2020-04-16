@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+    src="http://api.map.baidu.com/api?v=2.0&ak=zmaG5EXawM9pRxrG2ggqMbsSTUSNjXKn"
+    >
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #map{
+            width: 80vw;
+            height: 100vh;
+            background-color:red;/*css 调试技巧之一*/
+        }
+        .suggestion{
+            position: absolute;
+            top:0;
+            right: 10vw;
+            width: 10vw;
+            height: 10vh;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="map"></div>
+    <div class="suggestion">
+        <div id="r-result">请输入：
+            <input type="text" id="suggestId" size="20" value="百度">
+        </div>
+    </div>
+</div>
+    <script>
+        window.onload = function()
+        {
+            //console.log('ready')
+            var map = new BMap.Map('map');//实例化地图
+            map.centerAndZoom("东华理工大学南昌校区",16)//中心设置
+        }
+    </script>
+</body>
+</html>
