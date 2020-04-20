@@ -80,7 +80,7 @@
 <body>
     <!-- html  +   css -->
     <!-- 附近的商家 info  -->
-    <div class="shop-list">
+    <!-- <div class="shop-list">
         <div class="poi-item-wrapper">
             <div class="poi-info-wrapper">
                 <div class="image-wrapper">
@@ -99,7 +99,7 @@
         <div class="poi-item-wrapper">
 
         </div>
-    </div>
+    </div> -->
     <!-- <div id="map"></div> -->
     <script>
         // 1. 距离
@@ -110,11 +110,46 @@
             myLongitude = '115.941546',
             kfcLatitude = '28.549066',
             kfcLongitude = '115.950531';
+        // 坐标 店名 评分， ...{   } JSON 对象字面量
+        const shops = [
+            {
+                name:'肯德基(莲塘店)',
+                pos:['115.941546','28.549066'],
+                logo:'http://p0.meituan.net/deal/__45899142__3351739.jpg@320w_320h_1e_1c'
+            },
+            {
+                name:'牛男手造(莲塘店)',
+                pos:['115.947719','28.546228'],
+                logo:''
+            },
+            {
+                name:'莲塘老鸭子店',
+                pos:['115.933514','28.544123'],
+                logo:''
+            }
+        ];
 
         // sdk 有点大， 他在远方
         // js 事件机制
         window.onload = function () {
-
+            const shopContainer = document.querySelector('shop-list');
+            for(let i=0;i<shops.length;i++){
+                shopContainer.innerHTML+=`
+                    <div class="poi-item-wrapper">
+                        <div class="poi-info-wrapper">
+                            <div class="imgbox">
+                                <img src="${shops[i].logp}" alt="">
+                            </div>
+                        <div class="poi-info">
+                        <div class="poi-name"></div>
+                            <div class="price-wrapper">
+                                <div class="location"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>    
+                `
+            }
             function parseDistance(distance) {
                 //  如果> 1000米 返回  4.1km
                 // 否则 整数  936m
@@ -131,16 +166,16 @@
 
             //两点距离
             const myPoint = new BMap.Point(myLongitude, myLatitude);
-            const kfcPoint = new BMap.Point(kfcLongitude, kfcLatitude);
-            const distance = parseDistance(
-                // 925.1111
-                map.getDistance(myPoint, kfcPoint)
-            ); // Number
-            // console.log(distance);
-            document.querySelector('.poi-name').innerHTML = '肯德基';
-            document.querySelector('.location').innerHTML = distance;
-            document.querySelector('.imgbox img').src =
-                "https://p0.meituan.net/200.0/deal/607cffdccca7f4da09a2dddeedd31a8e49072.jpg@126_0_388_388a%7C267h_267w_2e_100Q"
+            // const kfcPoint = new BMap.Point(kfcLongitude, kfcLatitude);
+            // const distance = parseDistance(
+            //     // 925.1111
+            //     map.getDistance(myPoint, kfcPoint)
+            // ); // Number
+            // // console.log(distance);
+            // document.querySelector('.poi-name').innerHTML = '肯德基';
+            // document.querySelector('.location').innerHTML = distance;
+            // document.querySelector('.imgbox img').src =
+            //     "https://p0.meituan.net/200.0/deal/607cffdccca7f4da09a2dddeedd31a8e49072.jpg@126_0_388_388a%7C267h_267w_2e_100Q"
         }
     </script>
 </body>
