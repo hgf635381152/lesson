@@ -20,7 +20,7 @@
              0,1,0,0 => 0,1,0,0
     */
     div {
-      /* color: yellow !important; */
+      color: yellow /*!important*/; 
     }
     div::before {
       content: '1';
@@ -35,7 +35,7 @@
       color: teal;
     }
     * {
-    
+      font-size: 15px;
     }
     [type="text"] {
       padding: 4px;
@@ -50,11 +50,11 @@
     /* 同等优先级按照：定义的顺序，后面覆盖前面的 */
     /* 父子 */
     .parent .child {
-
+      font-size: 15px;
     }
     /* 即能选中 .parent 的元素，又能选中 .child 的元素*/
     .parent, .child {
-
+      font-size: 15px;
     }
     /* 即有 .parent 类名，又有 .child 类名 的元素*/
     .parent1 {
