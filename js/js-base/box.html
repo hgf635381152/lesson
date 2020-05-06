@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        .box1{
+            padding-left: 10px;
+        }
+        .box2{
+            box-sizing: border-box;
+            padding-left: 10px;
+        } */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100vw;
+            border: 20px solid red;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">content-box</div>
+    <div class="box box2">border-box</div>
+    <script>
+        const box1 = document.querySelector('.box1');
+        console.log(box1.offsetWidth, box1.offsetHeight);
+        const box2 = document.querySelector('.box2');
+        console.log(box2.offsetWidth, box2.offsetHeight);
+        // 1,1,2,3,5,8,13,21,34
+        // 0 1 2 3 4
+        // fib(4) ???
+        // 1.从前往后推导：从1 1 开始把后面每一项 推导出来
+        // 2.从后往前推导
+        // 3.fib(4): fib(3) + fib(2)
+        // fib(3): fib(2) + fib(1)
+        // fib(2): fib(1) + fib(0)
+        // 1.结束条件
+        // 2.重复运用逻辑
+        function fib(n){
+            if (n == 0 || n == 1){
+                return 1;
+            }
+            else{
+                return fib(n-1) + fib(n-2);
+            }
+        }
+        console.log(fib(4));
+    </script>
+</body>
+</html>
