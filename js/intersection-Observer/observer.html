@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 200px;
+            height: 600px;
+            overflow: scroll;
+            border: 1px solid black;
+        }
+        /* 子元素 要在这个200px 600px 范围之外 */
+        .target{
+            margin-top: 900px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="target">
+
+        </div>
+    </div>
+    <script>
+        // target 是在 container 之内滚动的 container 是root
+        // 属性
+        const target = document.querySelector('.target');
+        let observer = new IntersectionObserver(function(nodes){
+            nodes.forEach(function(node){
+                // console.log(node);
+                // 阈值[0.5] target 出现的区域 还没有超过50%
+                if (node.isIntersecting) {
+                    console.log('已经出现了');
+                }
+            })
+        },{
+            root: document.querySelector('.container'), // 观察的元素  在哪个容器里滚动
+            rootMargin: '0px 0px 100px 0px',   // 上 右 下 左   被观察的容器在观察范围内的虚拟偏移量
+            threshold: [0.5, 1]   // 阈值：观察的元素出现区域在视窗的比例   每超过一个阈值就通知一次
+        })
+        // 开始观察
+        // 如果出现在视窗范围之内，它就会通知我 用回调的方法通知
+        observer.observe(target);
+    </script>
+</body>
+</html>
