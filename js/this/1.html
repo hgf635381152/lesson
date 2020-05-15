@@ -1,0 +1,57 @@
+<button id="btn">btn</button>
+<script>
+  const btn = document.getElementById('btn');
+  function onClick() {
+    console.log(this);
+    console.log(this.a);
+  }
+  // click 运行的时候决定，addEventListener 会调用
+  // addEventListener 就会帮我们 回调里面 this 绑定为我们的 点击事件
+  btn.addEventListener('click', onClick);
+  var obj = {
+    name: 'zs',
+    a:'obj a'
+  }
+  console.log(obj.name);
+  console.log(obj.sex);
+  var a = 'global'
+  function fo(b,c){
+    // this === Window
+    console.log(this);
+    console.log(this.a , b, c);
+  }
+  // document.createElement('div');
+  // fetch('www.baidu.com')
+  // 前端 里面的 全局的一个变量，只有打开一个浏览器窗口
+  // 就有一个 Window  的变量，平常用的全局变量都在 Window 里
+  // 运行的时候 this
+  // 1.不加任何修饰，用()调用  默认 this 指向window
+  // fo();
+  // 2.call 也是调用这个函数的方式， 第一个参数来指定函数调用时 需要的this
+  // 往后的参数 就是 fo 调用时需要的形参
+  // fo.call(window,'b','cc');
+  // fo.call(obj, 'b','cc');
+  // apply 与 call 的不同只在于函数调用时 形参需要用数组包起来
+  fo.apply(obj,['b','cc']);
+</script>
+<script>
+  var obj1 = {
+    a: 1,
+    say: function(){
+      console.log(this.a);
+    }
+  }
+  var obj2 = {
+    a: 2,
+    say1: function () {
+      console.log(this.a);
+      obj1.say(); // obj1 里面 say 和 obj2 里面 say1 的 this 没关系
+    }
+  }
+  // obj1.say.call(obj2);
+  // obj1.say();
+  // console.log(obj1.say);
+  // let test = obj1.say;
+  // test()
+  obj2.say1();
+</script>
