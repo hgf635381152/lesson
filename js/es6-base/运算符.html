@@ -1,0 +1,40 @@
+<script>
+  // ... 运算符
+  const max = Math.max(-1, -9, -5);
+  let arr = [10, 9, 8, 7];
+  const max1 = Math.max(...arr);
+  console.log(max1);
+  let str = 'abcde';
+  let arr1 = [...str];
+  console.log(arr1);
+  // => abcde 被拆开了   => a b c d e
+  let obj = {
+    name: 'name',
+    sex: 'nan',
+    a:{
+      b:{
+        c:1
+      }
+    }
+  }
+  console.log({...obj});
+
+
+  // object
+  // 指向同一个地址
+  // 怎么避免? 拷贝  赋值
+  // 浅复制: 只复制第一层
+  // let obj1= obj;
+  // 新的  从 obj 拷贝过去的 新对象
+
+  let obj1 = {...obj};
+  delete obj1.name;
+  delete obj1.a.b;
+  console.log(obj,obj1);
+
+  // es6 对函数扩展: 剩余参数
+  function sum(a,b,c,...rest) {
+    console.log(rest);
+  }
+  sum(0,1,2,3,4,5)
+</script>
