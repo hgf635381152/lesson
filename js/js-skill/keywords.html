@@ -1,0 +1,31 @@
+<script>
+  function test(a, b) {
+    if (!a || !b){
+      return ;
+    }
+    for (let i =0; i < 10; i++){
+      if (i > 5){
+        console.log('前面',i);
+        // return;  => undefined   终止代码执行
+        // break;  跳出整个循环
+        continue;  // 跳过本次循环 跳过之后的代码
+      }
+      console.log(i);
+    }
+    return 'test';
+  }
+  let res = test(1,2);
+  console.log(res);
+  console.log('---------------------');
+  // let arr = [0,1,2,3,4,5,6,7,8,9];
+  // arr.forEach(function (num) {
+  //   console.log('前面',num);
+  //   // 不会让整个循环终止
+  //   if (num > 5){
+  //     return ;
+  //   }
+  //   console.log(num);
+  // })
+  let a = {a:1};
+  let b = {...a};
+</script>

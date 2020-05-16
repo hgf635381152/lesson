@@ -1,0 +1,41 @@
+<script>
+  let obj1 = {
+    name:'name',
+    sex:'sex',
+    a:{
+      b:{
+        c:10
+      }
+    }
+  }
+  // 1.只有一层   不用 ... 
+  // 对象的一个 循环
+  // for in
+  // 递 | 归
+
+  function deepClone(obj) {
+    let res = {};
+    for (let key in obj){
+      // console.log(key);
+      // 递归:大问题分解为小问题   小问题解决思路一样
+      // obj1 深拷贝 a 深拷贝 b 深拷贝
+      // b 深拷贝 :没有嵌套了  到达嵌套最深的地方 res[key] = obj1[key]
+      // 一旦有嵌套(typeof 判断是否为 object 类型)那么就一直 拷贝嵌套对象 直到最深层
+      // res.key
+      // res.a = obj1.a;
+      if (typeof obj[key] === 'object'){
+        res[key] = deepClone(obj[key])
+      }
+      else{
+        // 基本数据类型
+        res[key] = obj[key];
+      }
+    }
+    return res;
+  }
+  // 入口
+  let obj2 = deepClone(obj1);
+  obj2.name = 'name2';
+  obj2.a.b.c = 20;
+  console.log(obj1,obj2);
+</script>
