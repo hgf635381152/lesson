@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append child DOM API</title>
+</head>
+<body>
+  <ul id="students">
+  </ul>
+  <script>
+    const students = [{
+      id: 1,
+      name: '刘策',
+      github:'https://github.com/hgf635381152/lesson'
+    }, {
+      id: 2,
+      name: '张风挺',
+      github:'https://github.com/hgf635381152/lesson'
+    }, {
+      id: 3,
+      name: '刘巧纯',
+      github:'https://github.com/hgf635381152/lesson'
+    }]
+    // students  append #root
+    // arr -> map  ->  html arr -> join   -> url
+    // DOM 动态编程
+    // innerHTML  /   appendChild
+    // html 标签还可以用js 来创建
+    // js 跟 html 联系起来
+    const oUL = document.getElementById('students');
+
+    oUL.addEventListener('click',function(){
+      alert('跳转');
+      // 如何 只在 UL 上点击，把 A 名字打印出来
+    })
+    oUL.style.fontSize = '20px';
+    // li 没选中 内存中是节点对象了  append html
+    // js 节点对象
+    // console.log(oLi.nodeType);
+    //  ？
+    // console.log(oText.nodeType);
+    // li 加 一个 a href
+    // 节点树
+    const fragment = document.createDocumentFragment();// 垫片 文档碎片
+
+    for(let student of students){
+      const oLi = document.createElement('li');
+      oLi.className = 'item';
+      const oA = document.createElement('a');
+      oA.setAttribute('href',student.github);
+      oA.setAttribute('target','blank');
+      const oText = document.createTextNode(student.name);
+      oA.appendChild(oText);
+      // oA.addEventListener('click',function(event){
+      //   event.preventDefault();
+      //   alert(this.innerText);
+      // })
+      oLi.appendChild(oA);
+      fragment.appendChild(oLi);
+      //oUL.appendChild(oLi); // 性能问题  页面的3次重新绘制， 和刷新 appendChild li -> ul
+      // js DOM 性能消耗较大
+    }
+    oUL.appendChild(fragment);
+    // 请在students 节点挂载到 ul 后, 在给 li 加上 id 值的节点
+    const studentLis = document.querySelectorAll('.item');
+    studentLis.forEach((li,index) => {
+      let oA = li.querySelector('a');
+      console.log(oA);
+      const oSpan = document.createElement('span');
+      oSpan.appendChild(document.createTextNode(students[index].id))
+      li.insertBefore(oSpan,oA);
+    })
+    // studentLis.forEach(li => {
+    //   console.log(li);
+    // })
+    // studentLis 伪数组 for forEach length 下标访问 仅此而已
+    // studentLis.fliter(li => li.childNodes[0].innerText)
+  </script>
+</body>
+</html>
