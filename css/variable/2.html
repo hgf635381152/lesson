@@ -25,6 +25,17 @@
       padding: calc(var(--base-size) * 1px);
     }
     /* 当是手机浏览时，请把box 宽 高  padding大小等比例缩放80% 在变量上做文章 */
+    @media (max-width: 480px) {
+      :root{
+        --base-size: 8;
+      }
+    }
+    /* @media  媒体查询(上网的媒介) only screen 带有屏幕的设备 */
+    @media only screen and (min-width: 1200px) {
+      :root{
+        --base-size: 20;
+      }
+    }
   </style>
 </head>
 <body>
