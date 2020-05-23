@@ -1,0 +1,15 @@
+{
+  "name": "node-stream",
+  "version": "1.0.0",
+  "description": "管道的发名者叫，Malcolm Douglas McIlroy，他也是Unix的创建者，是Unix文化的缔造者之一。他归纳的Unix哲学如下：",
+  "main": "copy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
