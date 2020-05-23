@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Koa = require('koa'); // web node 开发框架
-const Kstatic = require('koa-static');
+// const Kstatic = require('koa-static');
 const app = new Koa();
 
 const main = ctx => {
