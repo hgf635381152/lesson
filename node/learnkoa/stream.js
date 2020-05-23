@@ -10,6 +10,14 @@ const main = ctx => {
     ctx.response.type = 'image';
     ctx.response.body = fs.createReadStream('./yb.jpeg');
   }
+  else if (ctx.request.url === '/common.css'){
+    ctx.response.type = 'css';
+    ctx.response.body = fs.createReadStream('./common.css');
+  }
+  else if (ctx.request.url === '/common.js') {
+    ctx.response.type = 'js';
+    ctx.response.body = fs.createReadStream('./common.js');
+  }
   else{
     ctx.response.type = 'html'; // 响应头  png  css js
     //在服务器端 打开可读流， TCP 
