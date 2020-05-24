@@ -11,3 +11,11 @@
   4. webpack
 
 - 组件思想   把页面开发当成搭积木
+
+- React 是新的前端开发框架， 还是新的思想
+- DOM API  过时了， 性能低下
+  1. component 组件树   父组件  子组件 之间 
+      数据传递props 自身的状态state
+  2. props  传参
+  3. state 自有状态   setState, 用到相应状态的组件
+    会自动响应      响应式开发
