@@ -1,0 +1,11 @@
+<script>
+  var name = 'lihua';
+  function showName() {
+    console.log(name);  // 向外查找得到lihua
+  }
+  function changeName(){
+    var name = 'Bigbear';
+    showName(); // 跟调用时间无关
+  }
+  changeName(); 
+</script>
