@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Comment from './Comment';
 
 class CommentList extends Component {
   render() {
+    console.log(this.props,"+++++");
+    let { comments } = this.props;
     return (
       <div>
-        CommentList
+        { comments.map((comment, i) => <Comment comment={comment} key={i} />)}
       </div>
     )
   }
