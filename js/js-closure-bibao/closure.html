@@ -1,0 +1,25 @@
+<script>
+  var name1 = 'lilei';
+  function test() {
+    var name = 0;
+    function test1() {
+      var name2 = 'lignag';
+      // debugger;
+      return name ++;
+      // 访问了 另外一个函数作用域里面的变量
+      // console.log(name);
+    }
+    // 函数
+    return test1;
+  }
+  function test3() {
+    var a = 0; 
+    return a ++;
+  }
+  // test3();
+  // 延长 name 作用域
+  // closure{ name: 1 }
+  var fn = test();
+  console.log(fn());
+  console.log(fn());
+</script>
