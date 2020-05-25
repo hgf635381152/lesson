@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 // 页面
@@ -130,5 +130,5 @@ class App extends React.Component {
 export default App;
 // 命名导出
 
-export const name = 'lilei';
+// export const name = 'lilei';
 
