@@ -19,3 +19,24 @@
   2. props  传参
   3. state 自有状态   setState, 用到相应状态的组件
     会自动响应      响应式开发
+
+文章列表
+组件  组合html ,css ,js 新的自定义标签 <PostsApp />
+  PostApp
+    Tab 
+      TabItem
+    PostsList
+      Post
+
+this.state = [
+  title,
+  id,
+  type: 1|2|3
+]
+
+TabItem onclick
+this.props.onTtemClick(1)
+this.setState({
+  filter
+})
+
