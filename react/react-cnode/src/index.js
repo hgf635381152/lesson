@@ -4,7 +4,7 @@ import './index.css';
 // 默认导入
 import App from './App';
 // 命名导入
-import{name} from './App'
+// import{name} from './App'
 import * as serviceWorker from './serviceWorker';
 
 // 
