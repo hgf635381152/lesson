@@ -31,3 +31,12 @@ Content-Type:
 ## 非简单请求
 - OPTIONS  preflight
 - POST / api
+
+## JSONP
+不同于  xhr  fetch  不受跨域限制
+img
+src
+link
+
+借助了script
+1. jsonp  后端给你返回的是什么
