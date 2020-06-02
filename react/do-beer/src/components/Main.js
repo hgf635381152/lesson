@@ -2,6 +2,7 @@ import React from "react";
 // StatefullComponent  StatelessComponent
 import Search from "./Search";
 import Results from "./Results";
+import Header from "./Header";
 
 
 class Main extends React.Component {
@@ -26,7 +27,28 @@ class Main extends React.Component {
   }
 
 
+  componentDidUpdate(prevProps){
+    // console.log('prevProps')
+    // console.log('did update')
+    const currentSearchTerm = this.props.match.params.searchTerm;
+    const oldSearchTerm = prevProps.match.params.searchTerm;
+    // console.log(OldSearchTerm ,currentSearchTerm);
+    if (currentSearchTerm !== oldSearchTerm){
+      this.loadBeers(currentSearchTerm);
+    }
+  }
+
+  // es6  概念  默认赋值
   loadBeers(searchTerm = "hops") {
+    const localStorageBeers = localStorage.getItem(`search-${searchTerm}`)
+    if(localStorageBeers){
+      const localBeers = JSON.parse(localStorageBeers);
+      this.setState({
+        beers: localBeers,
+        loading: false
+      })
+      return;
+    }
     fetch(`http://api.react.beer/v2/search?q=${searchTerm}&type=beer`)
       .then(data => data.json())
       .then(data => {
@@ -35,6 +57,12 @@ class Main extends React.Component {
           loading: false,
           beers
         });
+        // 业务
+        // 列表记录相关  searchTerm 变化
+        localStorage.setItem(
+          `search-${searchTerm}`,
+          JSON.stringify(this.state.beers)
+        )
         console.log(data);
       })
   }
@@ -43,6 +71,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
+        <Header siteName="Beer me!" />
         <Search />
         {/* 搜索组件 */}
         <Results beers={this.state.beers} loading={this.state.loading}/>
