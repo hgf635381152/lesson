@@ -19,13 +19,14 @@ class Xmlhttprequest {
     this.headers = headers;
   }
   parse(string) {
-    // 解析
+    // 解析, 
     const lines = string.split('\r\n');
     console.log(lines);
     this.resStatusLine = lines[0];
     this.statusCode = this.resStatusLine.split(' ')[1];
     // [)
-    this.resHeaders = lines.slice(1, lines.length - 1);
+    // splice() 数组
+    this.resHeaders = lines.slice(1, lines.length - 2);
     this.response = lines[lines.length - 1];
   }
   send(body) {
@@ -41,13 +42,14 @@ class Xmlhttprequest {
       // 解析报文
       console.log('receive:', JSON.stringify(chunk.toString()));
       this.parse(chunk.toString());
+      // 才接受到数据 这里解析完才调用
       this.onload();
     })
     client.on('end', () => {
       console.log('disconnect');
     })
   }
-
+  
 }
 // ajax
 const xhr = new Xmlhttprequest();
@@ -55,14 +57,15 @@ xhr.open("POST", "/");
 xhr.setHeader({
   'Content-Type': 'application/json'
 })
-xhr.onload = function () {
+// 回调： 数据加载回来 才会调用
+xhr.onload = function() {
   // 
   console.log('接受到响应了');
   console.log(xhr.statusCode)
   console.log(xhr.response)
   console.log(xhr.resHeaders)
 }
-xhr.send(JSON.stringify({ a: 1 }))
+xhr.send(JSON.stringify({a: 1}))
 // const client = net.createConnection({ port: 8088, host: '127.0.0.1' }, () => {
 //   let json = JSON.stringify({a: 1});
 //   client.write('POST / HTTP/1.1\r\n');

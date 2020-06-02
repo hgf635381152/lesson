@@ -1,7 +1,7 @@
 function match(string) {
   let state = start
-  for (let i of string) {
-    state = state(i);
+  for (let c of string) {
+    state = state(c);
   }
   return state === end;
 }
@@ -20,8 +20,8 @@ function foundA(char) {
     return start;
   }
 }
-function foundB(char) {
-  if (char === 'c') {
+function foundB(c) {
+  if (c === 'c') {
     return end
   } else {
     return start;
