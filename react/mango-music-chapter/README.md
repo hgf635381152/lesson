@@ -16,3 +16,10 @@
 
 - 单页应用设计思路:
   根据界面  可以分析出  头尾不动  中间内容根据 Route 匹配 
+- Loading 组件
+  哪个目录下创建？
+  containers
+  components    路由级别组件
+  Loading  服务于任何listAPI  列表组件  通用组件
+
+  1. 数据请求阶段

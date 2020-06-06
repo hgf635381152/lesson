@@ -42,7 +42,7 @@ class App extends React.Component{
               <Route exact path="/recommend" component={ Recommend } />
               <Route exact path="/ranking" component={ Ranking } />  
               <Route exact path="/search" component={ Search } />
-              <Redirect from="/" to="/recommmend" />
+              <Redirect from="/" to="/recommend" />
             </Switch>
           </div>
       </Router>
