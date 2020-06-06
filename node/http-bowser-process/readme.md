@@ -99,3 +99,29 @@ DOM 树， AST 抽象语法树
 ## 浏览器 匹配css 规则
 
 效率：**按照 css 选择器 从后往前匹配的**
+
+
+## layout
+毕生
+display: flex | block | inline-block | grid
+justify-content: center;
+positon: 
+float: 
+...
+用这些 对位置产生影响的元素，计算元素的位置信息，算出坐标系里面的 （x, y）
+
+## 正常的文档流
+脱离文档流：float：left position
+
+
+## normal flow
+行内元素（inline-level-box）: 水平从左往右一个接着一个布局, 垂直方向默认会以 baseLine 对齐
+块级元素（block-level-box）: 垂直方向从上往下一个接着一个布局
+relative 定位：
+
+
+## flex
+容器：
+flex-direction: row / cloumn
+justify-content: center/start/end
+align-item: center/start/end
