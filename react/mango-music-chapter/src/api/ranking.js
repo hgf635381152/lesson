@@ -14,6 +14,3 @@ export function getRankingList() {
   return jsonp(URL.rankingList, data, OPTION);
 }
 
-export function getRankingInfo() {
-
-}
