@@ -99,12 +99,13 @@ class Recommend extends React.Component {
     ))
     return (
       <div className="music-recommend">
-        <Scroll 
-        refresh={this.state.refreshScroll} 
-        onScroll = {(e) => {
-          forceCheck();
-        }}
-        >
+        {/* <Scroll
+          refresh={this.state.refreshScroll}
+          onScroll={(e) => {
+            console.log(e);
+            forceCheck();
+          }}
+        ></Scroll> */}
           <div className="slider-container">
           <div className="swiper-wrapper">
             {
@@ -121,13 +122,19 @@ class Recommend extends React.Component {
           </div>
           <div className="swiper-pagination"></div>
         </div>
-
+        <Scroll
+          refresh={this.state.refreshScroll}
+          onScroll={(e) => {
+            console.log(e);
+            forceCheck();
+          }}
+        >
           <div className="album-container">
-          <h1 className="title">最新专辑</h1>
-          <div className="album-list">
-            {albums}
+            <h1 className="title">最新专辑</h1>
+            <div className="album-list">
+              {albums}
+            </div>
           </div>
-        </div>
         </Scroll>
         <Loading show={this.state.loading} title="正在加载..." />
       </div>
