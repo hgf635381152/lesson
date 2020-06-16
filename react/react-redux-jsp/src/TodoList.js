@@ -7,8 +7,11 @@ import store from './store/index';
 class TodoList extends Component {
   constructor(props){
     super(props);
-    console.log(store.getState())
+    this.changeinputValue = this.changeinputValue.bind(this)
+    // console.log(store.getState())
     this.state = store.getState()
+    this.storeChange = this.storeChange.bind(this)
+    store.subscribe(this.storeChange)
   }
   render() { 
     return ( 
@@ -17,6 +20,7 @@ class TodoList extends Component {
           <Input 
             placeholder={this.state.inputValue} 
             style={{ width:'250px', marginRight:'20px'}}
+            onChange={this.changeinputValue}
           />
           <Button type="primary">增加</Button>
         </div>
@@ -29,6 +33,16 @@ class TodoList extends Component {
         </div>
       </div>
      );
+  }
+  changeinputValue(e){
+    const action = {
+      type: 'changeInput',
+      value: e.target.value
+    }
+    store.dispatch(action)
+  }
+  storeChange(){
+    this.setState(store.getState())
   }
 }
  
