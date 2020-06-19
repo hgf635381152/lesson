@@ -7,10 +7,11 @@ import store from './store/index';
 class TodoList extends Component {
   constructor(props){
     super(props);
-    this.changeinputValue = this.changeinputValue.bind(this)
     // console.log(store.getState())
     this.state = store.getState()
+    this.changeinputValue = this.changeinputValue.bind(this)
     this.storeChange = this.storeChange.bind(this)
+    this.clickbtn = this.clickbtn.bind(this)
     store.subscribe(this.storeChange)
   }
   render() { 
@@ -21,14 +22,18 @@ class TodoList extends Component {
             placeholder={this.state.inputValue} 
             style={{ width:'250px', marginRight:'20px'}}
             onChange={this.changeinputValue}
+            value={this.state.inputValue}
           />
-          <Button type="primary">增加</Button>
+          <Button 
+            type="primary" 
+            onClick={this.clickbtn}
+          >增加</Button>
         </div>
         <div style={{margin:'10px', width:'300px'}}>
           <List 
             bordered
             dataSource={this.state.list}
-            renderItem={item => (<List.Item>{item}</List.Item>)}
+            renderItem={(item, index) => (<List.Item onClick={this.deleteItem.bind(this, index)}>{item}</List.Item>)}
           />
         </div>
       </div>
@@ -43,6 +48,17 @@ class TodoList extends Component {
   }
   storeChange(){
     this.setState(store.getState())
+  }
+  clickbtn(){
+    const action = { type: 'addItem'}
+    store.dispatch(action)
+  }
+  deleteItem(index){
+    const action = {
+      type: 'deleteItem',
+      index
+    }
+    store.dispatch(action)
   }
 }
  
