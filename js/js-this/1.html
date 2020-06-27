@@ -32,8 +32,8 @@
   foo.apply(newObj, []);
   foo.call(newObj, 'a', 'b', 'c');
 
-  // bind 1绑定 this，给这个函数绑定部分参数  2不调用的
-  // foo.bind(newObj)
+  // bind 1绑定 this，给这个函数绑定部分参数  2 不调用函数的
+  foo.bind(newObj)
   // 函数
   let that = null
   function Animal() {

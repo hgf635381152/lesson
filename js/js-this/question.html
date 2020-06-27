@@ -5,7 +5,7 @@
     // 创建一个对象 {}.__proto__ = go.prototype
     console.log(this.a);
     // this 上面的 a
-    this.a = 30;
+    this.a = 30;  // 修改了window.a  为30了
   }
   go.prototype.a = 40;
   var test = {
@@ -22,6 +22,8 @@
   };
   console.log((new go()).a);  // 40  30
   test.init(go);  // this === test // 20 50
+  // var p = test.init(go); //  30  50
+  // p(); // 30
 
 
   class Home {
@@ -34,7 +36,8 @@
         // fn 传给 react
         // this 指向哪里，看在哪里调用
         // 调用 react 帮我们调用的
-         <div onClick={this.fn}></div>
+         <div onClick={this.fn}>
+         </div>
       );
     }
   }
