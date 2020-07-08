@@ -46,7 +46,8 @@
 
   // 看函数在哪里调用？
   // 4: new：this 指向 new 创建完的对象
-  // 3: call/apply 和 bind：第一个参数
+  // 3: call/apply 和 bind：第一个参数  
+  // bind 未来调用  call，apply立即调用但参数不同 一个个传参  一个传数组
   // 2: obj.  : 指向这个对象
   // 1: 默认 window，严格模式指向 undefined
 
