@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import './App.styl';
 import { Table } from 'antd';
 // 改用全局  antd 全局引入方式  babel
 // import 'antd/dist/antd.css';  
