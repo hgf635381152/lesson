@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const body = document.body;
+    function getUserInfo() {
+      console.log('发出请求')
+    }
+    body.onmousemove = throttled(getUserInfo, 1000)
+    // 方式一: 利用时间戳
+    // 有头事件    没有尾部事件
+    function throttled(func, wait) {
+        var previous = 0;
+        var time = null;
+        return function () {
+          var now = new Date().getTime();
+          const remain = wait - (now - previous)
+          if (now - previous > wait) {
+            func();
+            previous = now;
+          }
+          else if (!time) {
+            time = setTimeout(() => {
+              func();
+              time = null;
+              previous = new Date().getTime();
+            }, remain)
+          }
+        }
+      }
+    function throttled1(func, wait) {
+      var previous = 0;
+        return function() {
+        var now = new Date().getTime();
+        if (now - previous > wait) {
+          func();
+          previous = now;
+        }
+      }
+    }
+    // 方式二: 利用定时器
+    // 没有头事件   有尾部事件
+    function throttled2(func, wait) {
+      var timeout = null;
+      return function() {
+        if (!timeout) {
+          timeout = setTimeout(() => {
+            func();
+            timeout = null;
+          },wait)
+        }
+      }
+    }
+    // let t = setTimeout(() => {
+    //   console.log('11111111111')
+    // }, 6000)
+    // let time = setTimeout(() => {
+    //   clearTimeout(t)  清除t这个定时器
+    // }, 3000)
+  </script>
+</body>
+</html>
