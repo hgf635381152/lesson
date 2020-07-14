@@ -1,14 +1,24 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react'
 
 let arr = [1, 2]
+let set = new Set() // 无重复数据集
+set.add(1)
+set.add(2)
+console.log(set)
+let set1 = new Set([1,1,1,1,1]);
+console.log([...set1])
 
 function Demo() {
   const [ inputVal, setVal ] = useState('稻香')
   const [ list, setList ] = useState([])
-  const val = useMemo(() => arr)
+
+  // 缓存的时候检查依赖  只有依赖没有变化才会使用上次的值
+  const val = useMemo(() => arr, [])
+  set.add(val);
+  console.log(set.size)
   const handleChange = useCallback((event) => {
     setVal(event.target.value);
-  })
+  }, [])
   useEffect(() => {
     fetch('http://neteasecloudmusicapi.zhaoboy.com/search?keywords=' + inputVal)
     .then(res => res.json())
