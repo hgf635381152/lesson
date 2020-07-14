@@ -2,19 +2,18 @@
   width:100%;
   height:60px;
   position:fixed;
-  bottom:0;
   /**距离底部为0*/
   left:0;
-  z-index:1;  
-  font-size: 12px;
+  bottom: 0;
+  z-index: 3;  
+  font-size: 10px;
 }
 .first {
-  text-align: center;
   float: left;
   display: inline;
   width: 25%;
   line-height: 2rem;
-  height: 2rem;
+  height: 2rem;z-index: 3;
 }
 
 .second {

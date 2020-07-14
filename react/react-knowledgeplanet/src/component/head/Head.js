@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import './Head.css'
+import './Head.css';
+import Add from './加号.png'
 
 class Head extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Head extends Component {
   render() {
     return (
       <div className="head">
-        知识星球
+        <div className="head-text">知识星球</div>  
+        <div className="head-image"><img src={Add} alt="" width="24px" height="24px"></img></div>     
       </div>
     );
   }
