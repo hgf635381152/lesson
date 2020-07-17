@@ -11,13 +11,14 @@ export function showCitySelector() {
 
 export function fetchCityData() {
   return (dispatch, getState) => {
+    const { loadingstate } = getState()
     fetch('./rest/cities')
       .then(() => {
-      dispatch(isLoading(true))
+        dispatch(isLoading(loadingstate))
     })
     .then(res => res.json())
     .then(() => {
-      dispatch(isLoading(false))
+      dispatch(isLoading(loadingstate))
     })
     .then(cityData => {
       dispatch(setCityData(cityData))
@@ -35,6 +36,6 @@ export function setCityData(cityData) {
 export function isLoading(loadingstate) {
   return {
     type: SET_IS_LOADING_CITY_DATA,
-    payload: loadingstate
+    payload: !loadingstate
   }
 }
