@@ -1,0 +1,31 @@
+<script>
+  let str = 'my name is {name}, age is {age}';
+  str.replace('{name}', 'lilei');
+  let obj = { name: 'lilei', age: '18'}
+  let reg = /\{(\w+)\}/g;
+  let newStr = str.replace(reg, (...arg) => {
+    // () 里面的分组拿到
+    console.log(arg)
+    let key = arg[1]
+    // return 'lilei'
+    return obj[key]
+  })
+  console.log(newStr)
+  // YYYY-MM-DD    2017-11-11
+  function format(str) {
+    let reg = /(\d{4})-(\d{2})-(\d{2})/;
+    return str.replace(reg, (...arg) => {
+      return `${arg[2]}-${arg[3]}.${arg[1]}`
+    })
+  }
+  console.log(format('2017-11-11'))
+    // MM-DD.YYYY
+function a(str){
+  let reg = /-(\w{1})/g
+  return str.replace(reg, (...arg) => {
+    console.log(arg)
+    return arg[1].toUpperCase()
+  })
+}
+console.log(a('bg-color-nnn-aaa'))
+</script>

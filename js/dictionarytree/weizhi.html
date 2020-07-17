@@ -1,0 +1,12 @@
+<script>
+  let str = 'hello'
+  let newStr = str.replace(/^/, '#')
+  console.log(newStr)
+  // 子模式  子正则
+  // (?=)
+  // (?=l): l 前面的位置
+  let str1 = str.replace(/(?=l)/g, '#')
+  console.log(str1)
+  let str2 = str.replace(/(?!l)/g, '#')
+  console.log(str2)
+</script>

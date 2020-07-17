@@ -69,6 +69,7 @@
         //     strs = strs.replace(reg.exec('{'+e+'}'),obj[e])
         // }
         let reg = /\{[0-9A-Za-z_]\}/
+        let info = reg.exec
         return strs
     }
     console.log(compile(state,strs))
