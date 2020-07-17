@@ -59,15 +59,16 @@
     }
     let strs = 'myname is {name}, age is {age}'
     function compile(obj,tpl) {
-        // exec
-        // console.log(Object.keys(obj))
-        let reg = /^{[a-z]*}$/
-        for( let e in obj) {
-            // strs = strs.replace(/{e}/,'2')
-            // obj[e] 值
-            // console.log(reg.exec('{'+e+'}'))
-            strs = strs.replace(reg.exec('{'+e+'}'),obj[e])
-        }
+        // // exec
+        // // console.log(Object.keys(obj))
+        // let reg = /^{[a-z]*}$/
+        // for( let e in obj) {
+        //     // strs = strs.replace(/{e}/,'2')
+        //     // obj[e] 值
+        //     // console.log(reg.exec('{'+e+'}'))
+        //     strs = strs.replace(reg.exec('{'+e+'}'),obj[e])
+        // }
+        let reg = /\{[0-9A-Za-z_]\}/
         return strs
     }
     console.log(compile(state,strs))
