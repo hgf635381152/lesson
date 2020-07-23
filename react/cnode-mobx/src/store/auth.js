@@ -13,3 +13,5 @@ class Auth {
     this.isLogin = false
   }
 }
+
+export default new Auth();
