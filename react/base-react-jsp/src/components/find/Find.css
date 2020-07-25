@@ -1,0 +1,76 @@
+.find-bg {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(red, #F0FFFF)
+}
+
+.find-bg-top {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  top: 15px;
+  /* margin-top: 20px; */
+}
+.find-bg .find-bg-top .iconfont1 {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+.find-bg .find-bg-top .iconfont2 {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  right: 70px;
+  top: 3px;
+}
+.find-bg .find-bg-top .iconfont3 {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  right: 20px;
+  top: 3px;
+}
+.find-bg-top-title {
+  font-family: STHupo;
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  right: 163px;
+  top: 6px;
+}
+.find-bg-bar {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+}
+.find-bg-bar-content{
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.find-bg-bar-content span {
+  font-size: 15px;
+  color: white;
+}
+
+.find-list {
+  position: relative;
+  transform: translateY(-60px) ;
+  margin-left: 3%;
+  width: 94%;
+  height: 600px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.box-active {
+  position: fixed;
+  top: 20px;
+}

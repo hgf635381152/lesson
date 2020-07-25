@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Xjj from './Xjj';
+import './index.css';
+import App from './App';
 
-
-ReactDOM.render(<Xjj />,document.getElementById('root'))
+ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+);

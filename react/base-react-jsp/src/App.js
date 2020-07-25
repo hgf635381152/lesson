@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-// import React from 'react';
-// const Component = react.Component;
+import React from 'react';
+import './App.css';
+import './index.css';
+import { HashRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes/index.js';
+// import { Provider } from 'react-redux';
+// import store from './store';
+import { GlobalStyle } from './style';
 
-class App extends Component{
-  render(){
-    return(
-      <ul className="my-list">
-        {/* JSX */}
-        <li>{true?'JS':'js'}</li>
-        <li>React</li>
-      </ul>
-    )
-    // var child1 = React.createElement('li', null, 'JS');
-    // var child2 = React.createElement('li', null, 'React');
-    // var root = React.createElement('ul', {className: 'my-list'}, child1, child2);
-  }
+function App() {
+  return (
+    // <Provider store={store}>
+      <HashRouter>
+        <GlobalStyle />
+        {renderRoutes(routes)}
+      </HashRouter>
+    // </Provider>
+  );
 }
 
 export default App;
