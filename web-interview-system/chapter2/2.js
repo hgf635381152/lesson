@@ -31,20 +31,31 @@
 
 // console.log(test())   // 输出10
 
-function foo(a, b) {
-  console.log(b);
-  return {
-    foo: function (c) {
-      return foo(c, a);
-    }
-  }
-}
+// function foo(a, b) {
+//   console.log(b);
+//   return {
+//     foo: function (c) {
+//       return foo(c, a);
+//     }
+//   }
+// }
 
-var func1 = foo(0);
-func1.foo(1);
-func1.foo(2);
-func1.foo(3);
-var func2 = foo(0).foo(1).foo(2).foo(3);
-var func3 = foo(0).foo(1);
-func3.foo(2);
-func3.foo(3);
+// var func1 = foo(0);
+// func1.foo(1);
+// func1.foo(2);
+// func1.foo(3);
+// var func2 = foo(0).foo(1).foo(2).foo(3);
+// var func3 = foo(0).foo(1);
+// func3.foo(2);
+// func3.foo(3);
+
+
+var a = 1;
+function test() {
+  a = 2;
+  return function () {
+    console.log(a);
+  }
+  var a = 3;
+}
+test()();
