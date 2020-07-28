@@ -1,0 +1,26 @@
+<script>
+  // repeat 实现，使用JS实现一个repeat方法，调用这个 repeatedFunc("hellworld") ，会alert4次 helloworld, 每次间隔3秒
+  var count = 0
+  function repeat(func, times, wait) {
+    return (arg) => {
+      for (let i = 0; i < times; i++) {
+        setTimeout(() => {
+          func(arg)
+        }, i * wait)
+      }
+    }
+  }
+  const repeatFunc = repeat(console.log, 4, 3000)
+  repeatFunc("helloworld")
+
+  function foo() {
+    console.log(arguments)
+    console.log(arguments.forEach)
+    console.log(Array.from(arguments))
+  }
+  foo(1,2,3,4,5,6)
+  // 类数组转数组
+  // 1. Array.prototype.slice.call()
+  // 2. Array.from()
+  // 3. 扩展运算符 (...)
+</script>
