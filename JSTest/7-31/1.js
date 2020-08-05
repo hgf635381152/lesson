@@ -8,14 +8,18 @@ const chapterTree = {
 
 function serialize(tree) {
   let arr = []
-  function walk(node) {
-    arr.push(node.name);
+  let str = '', num = 0
+  function walk(node, str) {
+    str == '' ? arr.push(str+node.name) : arr.push('(' + str + ')' + node.name);
     if (node.children) {
-      for (let child of node.children)
-        walk(child)
+      for (let i = 0; i < node.children.length; i++)
+      {
+        walk(node.children[i], str == '' ? `${str}${i + 1}` : `${str}.${i + 1}`)
+      }
     }
+    str = ''
   }
-  walk(tree)
+  walk(tree, str)
   return arr
 }
 // 测试
