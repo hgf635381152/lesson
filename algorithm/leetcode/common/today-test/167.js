@@ -8,6 +8,5 @@ var twoSum = function (numbers, target) {
         return arr
       }
     }
-
   }
 };
