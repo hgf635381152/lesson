@@ -79,13 +79,104 @@
 // _printName()
 // bar.printName()
 
-let bar = {
-  myName: " 极客邦 ",
-  test1: 1
-}
-function foo() {
-  this.myName = " 极客时间 "
-}
-foo.call(bar)
-console.log(bar)
+// let bar = {
+//   myName: " 极客邦 ",
+//   test1: 1
+// }
+// function foo() {
+//   this.myName = " 极客时间 "
+// }
+// foo.call(bar)
+// console.log(bar)
 // console.log(myName)
+
+// function executor(resolve, reject) {
+//   let rand = Math.random();
+//   console.log(1)
+//   console.log(rand)
+//   if (rand > 0.5)
+//     resolve()
+//   else
+//     reject()
+// }
+// var p0 = new Promise(executor);
+
+// var p1 = p0.then((value) => {
+//   console.log("succeed-1")
+//   return new Promise(executor)
+// })
+
+
+// var p3 = p1.then((value) => {
+//   console.log("succeed-2")
+//   return new Promise(executor)
+// })
+
+// var p4 = p3.then((value) => {
+//   console.log("succeed-3")
+//   return new Promise(executor)
+// })
+
+
+// p4.catch((error) => {
+//   console.log("error")
+// })
+// console.log(2)
+
+// function* genDemo() {
+//     console.log(" 开始执行第一段 ")
+//     yield 'generator 2'
+ 
+//     console.log(" 开始执行第二段 ")
+//     yield 'generator 2'
+ 
+//     console.log(" 开始执行第三段 ")
+//     yield 'generator 2'
+ 
+//     console.log(" 执行结束 ")
+//     return 'generator 2'
+// }
+ 
+// console.log('main 0')
+// let gen = genDemo()
+// console.log(gen.next().value)
+// console.log('main 1')
+// console.log(gen.next().value)
+// console.log('main 2')
+// console.log(gen.next().value)
+// console.log('main 3')
+// console.log(gen.next().value)
+// console.log('main 4')
+
+
+// async function foo() {
+//   console.log(1)
+//   let a = await 100
+//   console.log(a)
+//   console.log(2)
+// }
+// console.log(0)
+// foo()
+// console.log(3)
+
+// async function foo() {  
+//   console.log('foo')  // 3
+// }
+// async function bar() {
+//   console.log('bar start')  // 2
+//   await foo()
+//   console.log('bar end')   // 6
+// }
+// console.log('script start')     // 1
+// setTimeout(function () {
+//   console.log('setTimeout')   // 8
+// }, 0)
+// bar();
+// new Promise(function (resolve) {
+//   console.log('promise executor')   // 4
+//   resolve();
+// }).then(function () {
+//   console.log('promise then')   // 7
+// })
+// console.log('script end')   // 5
+
